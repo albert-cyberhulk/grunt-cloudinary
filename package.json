@@ -37,6 +37,9 @@
     "grunt": "~0.4.5"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "Albert Cyberhulk",
+    "http://www.cyberhulk.net",
+    "cloudinary"
   ]
 }
