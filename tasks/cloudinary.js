@@ -6,29 +6,19 @@
  * Licensed under the MIT license.
  */
 
- var cloudinary = require('cloudinary');
+// Requiring cloudinary as a node module
+var cloudinary = require('cloudinary');
 
+// Exporting Grunt module
 module.exports = function (grunt) {
+  // Registering module as a multitask
   grunt.registerMultiTask('cloudinary', 'Upload images to Cloudinary', function () {
-
-
-
+    // Configuring the cloudinary by options
     cloudinary.config(this.options());
-    console.log(this.options());
     var done = this.async();
-    cloudinary.api.resources(function (result) {
-      console.log(result);
-    });
-    var data = [];
-
     this.filesSrc.forEach(function (imgSrc) {
-
-    cloudinary.uploader.upload(imgSrc, function (result) {
-      data[imgSrc] = result.url;
-      //console.log(result.url);
-      grunt.log.writeln('Uploading ' + result.url);
-    }, {public_id: imgSrc});
-
-     });
+      console.log(imgSrc);
+      done();
+    });
   });
 };
