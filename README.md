@@ -87,9 +87,9 @@ grunt.initConfig({
       replace: true,
       remove: true
     },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+    src: [ // map to static files in project
+      'styles/**/*.css', 'scripts/**/*.js', 'images/**/*.png'
+    ]
   },
 });
 ```
