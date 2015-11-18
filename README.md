@@ -17,7 +17,7 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-cloudinary');
 ```
 
-## The "cloudinary" task
+## The 'cloudinary' task
 
 ### Overview
 In your project's Gruntfile, add a section named `cloudinary` to the data object passed into `grunt.initConfig()`.
@@ -98,4 +98,4 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_Version: 0.1.6_
+_Version: 0.1.8_
