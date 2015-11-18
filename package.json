@@ -1,7 +1,7 @@
 {
   "name": "grunt-cloudinary",
   "description": "Uploads specified static files to cloudinary",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "homepage": "https://github.com/albert-cyberhulk/grunt-cloudinary",
   "author": {
     "name": "Albert Cyberhulk",
@@ -47,6 +47,7 @@
     "cloudinary": "^1.2.5",
     "underscore": "^1.8.3"
   },
+  "readme": "# grunt-cloudinary\n\n> Uploads specified static files to cloudinary\n\n## Getting Started\nThis plugin requires Grunt `~0.4.5`\n\nIf you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-cloudinary --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks('grunt-cloudinary');\n```\n\n## The 'cloudinary' task\n\n### Overview\nIn your project's Gruntfile, add a section named `cloudinary` to the data object passed into `grunt.initConfig()`.\n\n```js\ngrunt.initConfig({\n  cloudinary: {\n      // Options for cloudinary\n      options: {\n        remove: true, // removes files after uploading // to be done in next releases\n        replace: true, // replaces references of initial files with cloud ones // to be done in next releases\n        credentials: { // cloudinary credentials\n          'api_key': 'yourapikeyhere',\n          'api_secret': 'yourapisecrethere',\n          'cloud_name': 'yourcloudnamehere'\n        }\n      },\n      // source files to be processed\n      src: {\n        expand: true,\n        cwd: 'yourfolderpathhere', //\n        src: [ // map to static files in project\n          'styles/**/*.css', 'scripts/**/*.js', 'images/**/*.png'\n        ]\n      }\n    }\n});\n```\n\n### Options\n\n#### options.remove\nType: `Boolean`\nDefault value: `false`\n\nA Boolean value that is used remove the src files after upload (to be done...).\n\n#### options.replace\nType: `Boolean`\nDefault value: `false`\n\nA Boolean value that is used to replace all occurences in project files (to be done...).\n\n### Usage Examples\n\n#### Default Options\nIn this example, the default options are used to upload files to cloudinary\n\n```js\ngrunt.initConfig({\n  cloudinary: {\n    options: {},\n    src: [ // map to static files in project\n      'styles/**/*.css', 'scripts/**/*.js', 'images/**/*.png'\n    ]\n  },\n});\n```\n\n#### Custom Options\nIn this example, custom options are used to replace and remove occurences\n\n```js\ngrunt.initConfig({\n  cloudinary: {\n    options: {\n      replace: true,\n      remove: true\n    },\n    src: [ // map to static files in project\n      'styles/**/*.css', 'scripts/**/*.js', 'images/**/*.png'\n    ]\n  },\n});\n```\n\n## Contributing\nIn lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).\n\n## Release History\n_Version: 0.2.0_\n",
   "readmeFilename": "README.md",
   "gitHead": "6fbb55ae1154ab65579a7a06b4e3f21537d49ee7",
   "_id": "grunt-cloudinary@0.1.2",
