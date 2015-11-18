@@ -59,7 +59,7 @@ A Boolean value that is used remove the src files after upload (to be done...).
 Type: `Boolean`
 Default value: `false`
 
-A Boolean value that is used to replace all occurences in project files.
+A Boolean value that is used to replace all occurences in project files (to be done...).
 
 ### Usage Examples
 
