@@ -26,23 +26,9 @@ In your project's Gruntfile, add a section named `cloudinary` to the data object
 grunt.initConfig({
   cloudinary: {
       // Options for cloudinary
-      options: {
-        remove: true, // removes files after uploading // to be done in next releases
-        replace: true, // replaces references of initial files with cloud ones // to be done in next releases
-        credentials: { // cloudinary credentials
-          'api_key': 'yourapikeyhere',
-          'api_secret': 'yourapisecrethere',
-          'cloud_name': 'yourcloudnamehere'
-        }
-      },
+      options: {},
       // source files to be processed
-      src: {
-        expand: true,
-        cwd: 'yourfolderpathhere', //
-        src: [ // map to static files in project
-          'styles/**/*.css', 'scripts/**/*.js', 'images/**/*.png'
-        ]
-      }
+      files: [{}]
     }
 });
 ```
@@ -53,44 +39,85 @@ grunt.initConfig({
 Type: `Boolean`
 Default value: `false`
 
-A Boolean value that is used remove the src files after upload (to be done...).
+A Boolean value that is used remove the src files after upload (to be done in next release...).
 
 #### options.replace
 Type: `Boolean`
 Default value: `false`
 
-A Boolean value that is used to replace all occurences in project files (to be done...).
+A Boolean value that is used to replace all occurrences
+
+#### options.dir
+Type: `String`
+Default value: `empty string`
+
+A String value that is used to indicate the path where all occurrences in project should be replaced (removal to be done in next release...)
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to upload files to cloudinary
-
-```js
-grunt.initConfig({
-  cloudinary: {
-    options: {},
-    src: [ // map to static files in project
-      'styles/**/*.css', 'scripts/**/*.js', 'images/**/*.png'
-    ]
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to replace and remove occurences
+#### Simplified Options
+In this example, the simplified options are used to upload files to cloudinary
 
 ```js
 grunt.initConfig({
   cloudinary: {
     options: {
-      replace: true,
-      remove: true
+      credentials: { // cloudinary credentials
+        'api_key': 'yourapikey',
+        'api_secret': 'yourapisecret',
+        'cloud_name': 'yourcloudnamehere'
+      }
     },
-    src: [ // map to static files in project
-      'styles/**/*.css', 'scripts/**/*.js', 'images/**/*.png'
-    ]
-  },
+    files: [{
+      expand: true, // should be set to true to find whole path
+      cwd: '<%= project.dist %>',
+      src: [
+        'images/**/*.ico', 'images/**/*.png', 'images/**/*.jpeg',
+        'scripts/**/*.js', 'scripts/**/*.js'
+      ]
+    }]
+  }
+});
+```
+
+#### Custom Options
+See full example with upload and replace options enabled
+
+```js
+grunt.initConfig({
+  cloudinary: {
+    // Options for cloudinary
+    options: {
+      replace: true, // replaces originals with uploaded ones // default false
+      // in case replace is false find and replace all occurrences is not enabled
+      dir: '<%= project.dist %>/', // path where the occurrences should be replaced // defaults to ""
+      credentials: { // cloudinary credentials
+        'api_key': 'yourapikey',
+        'api_secret': 'yourapisecret',
+        'cloud_name': 'yourcloudnamehere'
+      }
+    },
+    // source files to be processed
+    files: [{
+      expand: true, // should be set to true to find whole path
+      cwd: '<%= project.dist %>',
+      src: [
+        'images/**/*.ico', 'images/**/*.png', 'images/**/*.jpeg'
+      ]
+    }, {
+      expand: true, // should be set to true to find whole path
+      cwd: '<%= project.dist %>', // use your project destination
+      src: [
+        'styles/**/*.css'
+      ]
+    }, {
+      expand: true, // should be set to true to find whole path
+      cwd: '<%= project.dist %>', // use your project destination
+      src: [
+        'scripts/**/*.js'
+      ]
+    }]
+  }
 });
 ```
 
@@ -98,4 +125,4 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_Version: 0.2.0_
+_Version: 0.3.0_
